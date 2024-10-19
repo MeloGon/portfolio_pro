@@ -6,7 +6,7 @@ part of 'state.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$darkModeHash() => r'6fb6387ce352c6822524063335a6e3df6c924864';
+String _$darkModeHash() => r'e91c869e8b6f10d98a8694ca5fcee335f67d8a59';
 
 /// See also [DarkMode].
 @ProviderFor(DarkMode)

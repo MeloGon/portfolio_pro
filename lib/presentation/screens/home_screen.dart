@@ -29,51 +29,78 @@ class HomeScreen extends ConsumerWidget {
               Expanded(
                 //flex: (Responsive.isMobile(context)) ? 9 : 2,
                 flex: 2,
-                child: Column(
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors
+                              .black, // Fondo negro para similar la imagen
+                          borderRadius:
+                              BorderRadius.circular(15), // Bordes redondeados
+                          border: Border.all(
+                            width: 4, // Ancho del borde
+                            color: Colors
+                                .transparent, // Color transparente inicial
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.orange.withOpacity(
+                                  0.6), // Color anaranjado semi-transparente
+                              spreadRadius: 3, // Expansión del color
+                              blurRadius: 5, // Difuminado del borde
+                            ),
+                          ],
+                        ),
+                        margin: const EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.all(10),
+                        child: CircleAvatar(
+                          radius: 50,
                         ),
                       ),
-                      padding: const EdgeInsets.all(10),
-                      child: CircleAvatar(
-                        radius: 50,
+                      const SizedBox(height: 20),
+                      StyledText.headlineLarge("Hello world"),
+                      Text(
+                        'Kevyn Melo',
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
-                    ),
-                    Text('Kevyn Melo'),
-                    Text('Mobile Developer'),
-                    Text('Arequipa, Perú'),
-                    Row(
-                      children: [
-                        IconButton(
-                            // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                            icon: FaIcon(FontAwesomeIcons.linkedin),
-                            onPressed: () {
-                              print("Pressed");
-                            }),
-                        IconButton(
-                            // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                            icon: FaIcon(FontAwesomeIcons.envelopesBulk),
-                            onPressed: () {
-                              print("Pressed");
-                            }),
-                        IconButton(
-                            // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                            icon: FaIcon(FontAwesomeIcons.github),
-                            onPressed: () {
-                              print("Pressed");
-                            }),
-                      ],
-                    ),
-                    Text('About'),
-                    Text(
-                        'Ssr mobile developer with a passion for build mobile applications. Currently seeking oportunities to further develop my skills in a professional setting')
-                  ],
+                      Text('Mobile Developer'),
+                      Text('Arequipa, Perú'),
+                      Row(
+                        children: [
+                          IconButton(
+                              // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                              icon: FaIcon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.orange.withOpacity(0.6),
+                              ),
+                              onPressed: () {
+                                print("Pressed");
+                              }),
+                          IconButton(
+                              // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                              icon: FaIcon(FontAwesomeIcons.envelopesBulk),
+                              onPressed: () {
+                                print("Pressed");
+                              }),
+                          IconButton(
+                              // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                              icon: FaIcon(FontAwesomeIcons.github),
+                              onPressed: () {
+                                print("Pressed");
+                              }),
+                        ],
+                      ),
+                      Text('About'),
+                      Text(
+                          'Ssr mobile developer with a passion for build mobile applications. Currently seeking oportunities to further develop my skills in a professional setting')
+                    ],
+                  ),
                 ),
               ),
+              const SizedBox(width: 20),
               Expanded(
                 flex: 7,
                 child: Text('data2'),
