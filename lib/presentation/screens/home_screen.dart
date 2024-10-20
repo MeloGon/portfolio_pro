@@ -4,6 +4,7 @@ import 'package:portfolio/config/config.dart';
 import 'package:portfolio/config/constants/sizes.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/presentation/providers/state.dart';
+import 'package:timelines_plus/timelines_plus.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -111,7 +112,39 @@ class HomeScreen extends ConsumerWidget {
               20.w,
               Expanded(
                 flex: 7,
-                child: Text('data2'),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Experience'),
+                    20.h,
+                    FixedTimeline.tileBuilder(
+                      theme: TimelineTheme.of(context).copyWith(
+                          nodePosition: .1,
+                          color: Color.fromARGB(255, 245, 186, 92)),
+                      builder: TimelineTileBuilder.connectedFromStyle(
+                        contentsAlign: ContentsAlign.reverse,
+                        oppositeContentsBuilder: (context, index) => Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                  'Developing and maintaining web applications using JavaScript, HTML, and CSS. Collaborating with the team to implement new features and fix bugs.'),
+                            ],
+                          ),
+                        ),
+                        contentsBuilder: (context, index) => Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('2024 - present'),
+                        ),
+                        connectorStyleBuilder: (context, index) =>
+                            ConnectorStyle.solidLine,
+                        indicatorStyleBuilder: (context, index) =>
+                            IndicatorStyle.dot,
+                        itemCount: 3,
+                      ),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
