@@ -2,59 +2,87 @@ import 'package:flutter/material.dart';
 
 class StyledText extends StatelessWidget {
   final String text;
+  final FontWeight? fontWeight;
   late final TextStyle? Function(BuildContext context)? getStyle;
 
-  StyledText.headlineLarge(this.text, {super.key}) {
+  StyledText.headlineLarge(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.headlineLarge;
+      return Theme.of(context)
+          .textTheme
+          .headlineLarge
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.headlineMedium(this.text, {super.key}) {
+  StyledText.headlineMedium(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.headlineMedium;
+      return Theme.of(context)
+          .textTheme
+          .headlineMedium
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.headlineSmall(this.text, {super.key}) {
+  StyledText.headlineSmall(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.headlineSmall;
+      return Theme.of(context)
+          .textTheme
+          .headlineSmall
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.bodyLarge(this.text, {super.key}) {
+  StyledText.bodyLarge(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.bodyLarge;
+      return Theme.of(context)
+          .textTheme
+          .bodyLarge
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.bodyMedium(this.text, {super.key}) {
+  StyledText.bodyMedium(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.bodyMedium;
+      return Theme.of(context)
+          .textTheme
+          .bodyMedium
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.bodySmall(this.text, {super.key}) {
+  StyledText.bodySmall(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.bodySmall;
+      return Theme.of(context)
+          .textTheme
+          .bodySmall
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.labelLarge(this.text, {super.key}) {
+  StyledText.labelLarge(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.labelLarge;
+      return Theme.of(context)
+          .textTheme
+          .labelLarge
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.labelMedium(this.text, {super.key}) {
+  StyledText.labelMedium(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.labelMedium;
+      return Theme.of(context)
+          .textTheme
+          .labelMedium
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 
-  StyledText.labelSmall(this.text, {super.key}) {
+  StyledText.labelSmall(this.text, {this.fontWeight, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.labelSmall;
+      return Theme.of(context)
+          .textTheme
+          .labelSmall
+          ?.copyWith(fontWeight: fontWeight);
     };
   }
 

@@ -7,7 +7,7 @@ class DarkMode extends _$DarkMode {
   @override
   bool build() => false;
 
-  void toogleDarkMode() {
+  void toggleDarkMode() {
     state = !state;
   }
 }

@@ -3,23 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/config/config.dart';
 import 'package:portfolio/config/constants/sizes.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-class MyWidget extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return IconButton(
-        // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-        icon: FaIcon(FontAwesomeIcons.gamepad),
-        onPressed: () {
-          print("Pressed");
-        });
-  }
-}
+import 'package:portfolio/presentation/providers/state.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final darkMode = ref.watch(darkModeProvider);
     return Scaffold(
       body: Center(
         child: Container(
@@ -60,15 +51,16 @@ class HomeScreen extends ConsumerWidget {
                           radius: 50,
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      StyledText.headlineLarge("Hello world"),
-                      Text(
-                        'Kevyn Melo',
-                        style: Theme.of(context).textTheme.titleLarge,
+                      20.h,
+                      StyledText.headlineLarge(
+                        "Kevyn Melo",
+                        fontWeight: FontWeight.w900,
                       ),
-                      Text('Mobile Developer'),
+                      StyledText.bodyLarge('Mobile Developer'),
+                      10.h,
                       Text('Arequipa, Perú'),
-                      Row(
+                      10.h,
+                      Wrap(
                         children: [
                           IconButton(
                               // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
@@ -82,25 +74,41 @@ class HomeScreen extends ConsumerWidget {
                           IconButton(
                               // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
                               icon: FaIcon(FontAwesomeIcons.envelopesBulk),
+                              color: Colors.orange.withOpacity(0.6),
                               onPressed: () {
                                 print("Pressed");
                               }),
                           IconButton(
                               // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
                               icon: FaIcon(FontAwesomeIcons.github),
+                              color: Colors.orange.withOpacity(0.6),
                               onPressed: () {
                                 print("Pressed");
                               }),
                         ],
                       ),
-                      Text('About'),
+                      20.h,
+                      StyledText.headlineMedium(
+                        'About',
+                        fontWeight: FontWeight.w500,
+                      ),
+                      20.h,
                       Text(
-                          'Ssr mobile developer with a passion for build mobile applications. Currently seeking oportunities to further develop my skills in a professional setting')
+                          'Ssr mobile developer with a passion for build mobile applications. Currently seeking oportunities to further develop my skills in a professional setting'),
+                      20.h,
+                      FloatingActionButton(
+                        onPressed: () {
+                          ref.read(darkModeProvider.notifier).toggleDarkMode();
+                        },
+                        child: darkMode
+                            ? const Icon(Icons.dark_mode_outlined)
+                            : const Icon(Icons.light_mode_outlined),
+                      ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(width: 20),
+              20.w,
               Expanded(
                 flex: 7,
                 child: Text('data2'),
