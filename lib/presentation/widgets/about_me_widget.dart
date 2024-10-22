@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/config/config.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
+import 'dart:js' as js;
 
 class AboutMeWidget extends StatelessWidget {
   const AboutMeWidget({super.key});
@@ -35,19 +36,16 @@ class AboutMeWidget extends StatelessWidget {
                     color: Colors.orange.withOpacity(0.6),
                   ),
                   onPressed: () {
-                    print("Pressed");
+                    js.context.callMethod('open', [
+                      "https://www.linkedin.com/in/kevyn-mauro-melo-gonzales-183160208/"
+                    ]);
                   }),
               IconButton(
-                  icon: FaIcon(FontAwesomeIcons.envelopesBulk),
+                  icon: const FaIcon(FontAwesomeIcons.github),
                   color: Colors.orange.withOpacity(0.6),
                   onPressed: () {
-                    print("Pressed");
-                  }),
-              IconButton(
-                  icon: FaIcon(FontAwesomeIcons.github),
-                  color: Colors.orange.withOpacity(0.6),
-                  onPressed: () {
-                    print("Pressed");
+                    js.context
+                        .callMethod('open', ["https://github.com/MeloGon"]);
                   }),
             ],
           ),

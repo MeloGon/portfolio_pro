@@ -55,8 +55,16 @@ class HomeScreen extends StatelessWidget {
               ),
             )),
       ),
-      bottomNavigationBar:
-          Container(color: Colors.red, child: Text('Hecho por mi <3')),
+      bottomNavigationBar: Container(
+        height: 30,
+        color: Colors.orange.withOpacity(.6),
+        child: Align(
+          alignment: Alignment.center,
+          child: StyledText.bodySmall(
+            'Made by Me 🫀',
+          ),
+        ),
+      ),
     );
   }
 }
