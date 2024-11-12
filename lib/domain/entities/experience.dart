@@ -54,5 +54,5 @@ final List<Experience> experiencesTemporal = [
       "Arequipa, Perú",
       "\n• Development collaborator in multiple applications in Java for companies in different sectors.\n• Participation in UI design",
       "Adiasoft",
-      ["flutter", "android", "kotlin", "swift"]),
+      ["android", "java"]),
 ];

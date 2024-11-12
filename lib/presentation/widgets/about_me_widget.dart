@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/config/config.dart';
+import 'package:portfolio/config/constants/my_strings.dart';
+import 'package:portfolio/presentation/providers/firebase_connection.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
 import 'dart:js' as js;
 
-class AboutMeWidget extends StatelessWidget {
+class AboutMeWidget extends ConsumerWidget {
   const AboutMeWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final profile = ref.watch(getProfileProvider);
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -20,44 +24,52 @@ class AboutMeWidget extends StatelessWidget {
             backgroundColor: Colors.transparent,
           ),
           20.h,
-          StyledText.headlineLarge(
-            "Kevyn Melo",
-            fontWeight: FontWeight.w900,
-          ),
-          StyledText.bodyLarge('Mobile Developer'),
-          10.h,
-          StyledText.bodyMedium('Arequipa, Perú'),
-          10.h,
-          Wrap(
-            children: [
-              IconButton(
-                  icon: FaIcon(
-                    FontAwesomeIcons.linkedin,
-                    color: Colors.orange.withOpacity(0.6),
+          profile.when(
+              data: (data) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      StyledText.headlineLarge(
+                        data.name ?? '',
+                        fontWeight: FontWeight.w900,
+                      ),
+                      StyledText.bodyLarge(data.grade ?? ''),
+                      10.h,
+                      StyledText.bodyMedium(data.place ?? ''),
+                      10.h,
+                      Wrap(
+                        children: [
+                          IconButton(
+                              icon: FaIcon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.orange.withOpacity(0.6),
+                              ),
+                              onPressed: () {
+                                js.context.callMethod('open', [
+                                  "https://www.linkedin.com/in/kevyn-mauro-melo-gonzales-183160208/"
+                                ]);
+                              }),
+                          IconButton(
+                              icon: const FaIcon(FontAwesomeIcons.github),
+                              color: Colors.orange.withOpacity(0.6),
+                              onPressed: () {
+                                js.context.callMethod(
+                                    'open', ["https://github.com/MeloGon"]);
+                              }),
+                        ],
+                      ),
+                      20.h,
+                      StyledText.headlineMedium(
+                        'About',
+                        fontWeight: FontWeight.w500,
+                      ),
+                      20.h,
+                      StyledText.bodyMedium(data.description ?? ''),
+                      20.h,
+                    ],
                   ),
-                  onPressed: () {
-                    js.context.callMethod('open', [
-                      "https://www.linkedin.com/in/kevyn-mauro-melo-gonzales-183160208/"
-                    ]);
-                  }),
-              IconButton(
-                  icon: const FaIcon(FontAwesomeIcons.github),
-                  color: Colors.orange.withOpacity(0.6),
-                  onPressed: () {
-                    js.context
-                        .callMethod('open', ["https://github.com/MeloGon"]);
-                  }),
-            ],
-          ),
-          20.h,
-          StyledText.headlineMedium(
-            'About',
-            fontWeight: FontWeight.w500,
-          ),
-          20.h,
-          StyledText.bodyMedium(
-              'Ssr mobile developer with a passion for build mobile applications. Currently seeking oportunities to further develop my skills in a professional setting'),
-          20.h,
+              error: (error, stackTrace) =>
+                  const Text(MyStrings.thereIsaProblem),
+              loading: () => const CircularProgressIndicator()),
           const ThemeButtonWidget(),
         ],
       ),

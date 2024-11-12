@@ -30,7 +30,6 @@ class EducationWidget extends StatelessWidget {
               ),
               const Spacer(),
               StyledText.bodySmall(education.date),
-              20.w
             ],
           ),
       ],

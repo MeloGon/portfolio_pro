@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'state.dart';
+part of 'firebase_connection.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$darkModeHash() => r'54d687970391283e693e0beb87bef8e54d34d8da';
+String _$getProfileHash() => r'a2efa8c57b4310a6777855dd26e2f55588447ea0';
 
-/// See also [DarkMode].
-@ProviderFor(DarkMode)
-final darkModeProvider = AutoDisposeNotifierProvider<DarkMode, bool>.internal(
-  DarkMode.new,
-  name: r'darkModeProvider',
+/// See also [getProfile].
+@ProviderFor(getProfile)
+final getProfileProvider = FutureProvider<Profile>.internal(
+  getProfile,
+  name: r'getProfileProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$darkModeHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getProfileHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$DarkMode = AutoDisposeNotifier<bool>;
+typedef GetProfileRef = FutureProviderRef<Profile>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
