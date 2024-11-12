@@ -34,5 +34,20 @@ final getEducationProvider = FutureProvider<List<Education>>.internal(
 );
 
 typedef GetEducationRef = FutureProviderRef<List<Education>>;
+String _$getExperienceHash() => r'74683bc342069f118b891f9d52628a1c549ad9c2';
+
+/// See also [getExperience].
+@ProviderFor(getExperience)
+final getExperienceProvider = FutureProvider<List<Experience>>.internal(
+  getExperience,
+  name: r'getExperienceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getExperienceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetExperienceRef = FutureProviderRef<List<Experience>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

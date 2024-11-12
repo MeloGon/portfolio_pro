@@ -47,7 +47,7 @@ class ProjectsSectionWidget extends StatelessWidget {
                             const Icon(Symbols.folder),
                             10.w,
                             StyledText.bodyLarge(
-                              project.title,
+                              project.title ?? '',
                               fontWeight: FontWeight.w700,
                             ),
                             const Spacer(),
@@ -62,7 +62,7 @@ class ProjectsSectionWidget extends StatelessWidget {
                         ),
                         10.h,
                         StyledText.bodyMedium(
-                          project.description,
+                          project.description ?? '',
                         ),
                       ],
                     ),
