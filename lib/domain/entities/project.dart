@@ -1,9 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Project {
   final String? title;
   final String? description;
   final String? url;
 
   Project({this.title, this.description, this.url});
+
+  Map<String, dynamic> toMap() {
+    return {'title': title, 'description': description, 'url': url};
+  }
+
+  factory Project.fromMap(DocumentSnapshot map) {
+    return Project(
+        title: map['title'], description: map['description'], url: map['url']);
+  }
 }
 
 final List<Project> projectsData = [

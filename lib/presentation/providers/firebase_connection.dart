@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/domain/entities/education.dart';
 import 'package:portfolio/domain/entities/experience.dart';
 import 'package:portfolio/domain/entities/profile.dart';
+import 'package:portfolio/domain/entities/project.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'firebase_connection.g.dart';
@@ -44,6 +45,20 @@ Future<List<Experience>> getExperience(Ref ref) {
       .then((listExperience) {
     return listExperience.docs
         .map((experience) => Experience.fromMap(experience))
+        .toList();
+  });
+}
+
+@Riverpod(keepAlive: true)
+Future<List<Project>> getProjects(Ref ref) {
+  return FirebaseFirestore.instance
+      .collection('portfolio')
+      .doc('projects')
+      .collection('list_projects')
+      .get()
+      .then((listProjects) {
+    return listProjects.docs
+        .map((projects) => Project.fromMap(projects))
         .toList();
   });
 }
