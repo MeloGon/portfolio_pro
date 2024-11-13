@@ -1,15 +1,39 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Experience {
   final String? id;
-  final String date;
-  final String occupation;
-  final String place;
-  final String content;
-  final String company;
-  final List<String> technologies;
+  final String? date;
+  final String? occupation;
+  final String? place;
+  final String? content;
+  final String? company;
+  final List<String>? technologies;
 
   Experience(this.occupation, this.date, this.place, this.content, this.company,
       this.technologies,
       {this.id});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'date': date,
+      'occupation': occupation,
+      'place': place,
+      'content': content,
+      'company': company,
+      'technologies': technologies
+    };
+  }
+
+  factory Experience.fromMap(DocumentSnapshot map) {
+    return Experience(
+      map['occupation'] ?? '',
+      map['date'] ?? '',
+      map['place'] ?? '',
+      map['content'] ?? '',
+      map['company'] ?? '',
+      map['technologies'] ?? [],
+    );
+  }
 }
 
 final List<Experience> experiencesTemporal = [

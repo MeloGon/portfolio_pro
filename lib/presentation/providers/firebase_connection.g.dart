@@ -34,7 +34,7 @@ final getEducationProvider = FutureProvider<List<Education>>.internal(
 );
 
 typedef GetEducationRef = FutureProviderRef<List<Education>>;
-String _$getExperienceHash() => r'74683bc342069f118b891f9d52628a1c549ad9c2';
+String _$getExperienceHash() => r'c45c36f7552eea36ad5bfa96ce4e9dd643ef9345';
 
 /// See also [getExperience].
 @ProviderFor(getExperience)

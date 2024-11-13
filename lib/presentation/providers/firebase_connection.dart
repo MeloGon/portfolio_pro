@@ -34,7 +34,16 @@ Future<List<Education>> getEducation(Ref ref) async {
   });
 }
 
-// @Riverpod(keepAlive: true)
-// Future<List<Experience>> getExperience(Ref ref) {
-//   //return [];
-// }
+@Riverpod(keepAlive: true)
+Future<List<Experience>> getExperience(Ref ref) {
+  return FirebaseFirestore.instance
+      .collection('portfolio')
+      .doc('experience')
+      .collection('list_experience')
+      .get()
+      .then((listExperience) {
+    return listExperience.docs
+        .map((experience) => Experience.fromMap(experience))
+        .toList();
+  });
+}
