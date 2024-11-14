@@ -40,7 +40,7 @@ class EducationWidget extends ConsumerWidget {
                   ],
                 ),
             error: (error, stackTrace) => Text('$error'),
-            loading: () => const CircularProgressIndicator()),
+            loading: () => const SizedBox.shrink()),
       ],
     );
   }

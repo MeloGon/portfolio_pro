@@ -5,6 +5,7 @@ import 'package:portfolio/config/config.dart';
 import 'package:portfolio/config/constants/my_strings.dart';
 import 'package:portfolio/presentation/providers/firebase_connection.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 
 class AboutMeWidget extends ConsumerWidget {
@@ -69,7 +70,7 @@ class AboutMeWidget extends ConsumerWidget {
                   ),
               error: (error, stackTrace) =>
                   const Text(MyStrings.thereIsaProblem),
-              loading: () => const CircularProgressIndicator()),
+              loading: () => const SizedBox.shrink()),
           const ThemeButtonWidget(),
         ],
       ),

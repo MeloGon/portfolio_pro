@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/config/config.dart';
 import 'package:portfolio/config/extensions/languages_extensions.dart';
 import 'package:portfolio/config/extensions/string_extensions.dart';
-//import 'package:portfolio/domain/entities/experience.dart';
 import 'package:portfolio/presentation/providers/firebase_connection.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 
@@ -37,7 +36,8 @@ class ExperienceTilesWidget extends ConsumerWidget {
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
-                  StyledText.bodyMedium((experience.content ?? '').transformNewLine),
+                  StyledText.bodyMedium(
+                      (experience.content ?? '').transformNewLine),
                   Wrap(
                       children: List.generate(experience.technologies!.length,
                           (index) {

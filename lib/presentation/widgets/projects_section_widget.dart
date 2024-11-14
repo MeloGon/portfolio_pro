@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:portfolio/config/config.dart';
-import 'package:portfolio/domain/entities/project.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 
 import 'package:portfolio/presentation/providers/firebase_connection.dart';
@@ -78,7 +78,7 @@ class ProjectsSectionWidget extends ConsumerWidget {
                   }),
                 ),
             error: (error, stackTrace) => const Text('Error'),
-            loading: () => const CircularProgressIndicator()),
+            loading: () => const SizedBox.shrink()),
         20.h,
       ],
     );

@@ -1,4 +1,4 @@
-extension converter on String {
+extension Converter on String {
   String get transformNewLine {
     return replaceAll(r'\n', '\n');
   }

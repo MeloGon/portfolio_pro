@@ -13,18 +13,18 @@ void main() async {
     messagingSenderId: "173175341099",
     projectId: "portfolio-266cc",
   ));
-  runApp(ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
     final darkMode = ref.watch(darkModeProvider);
     return MaterialApp.router(
-      title: 'Material App',
+      title: 'Kevyn Melo Portfolio',
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,
       theme: AppTheme(isDarkmode: darkMode).getTheme(),
