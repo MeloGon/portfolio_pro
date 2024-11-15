@@ -19,10 +19,25 @@ class AboutMeWidget extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
-            radius: 80,
-            backgroundImage: AssetImage('assets/images/profile.jpeg'),
-            backgroundColor: Colors.transparent,
+          Stack(
+            children: [
+              SizedBox.square(
+                dimension: 200,
+                child: DecoratedBox(
+                    decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(.2),
+                        shape: BoxShape.circle)),
+              ),
+              const Positioned(
+                top: 20,
+                left: 20,
+                child: CircleAvatar(
+                  radius: 80,
+                  backgroundImage: AssetImage('assets/images/profile.jpeg'),
+                  backgroundColor: Colors.transparent,
+                ),
+              ),
+            ],
           ),
           20.h,
           profile.when(

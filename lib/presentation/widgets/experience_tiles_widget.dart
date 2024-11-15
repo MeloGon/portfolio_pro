@@ -28,6 +28,10 @@ class ExperienceTilesWidget extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   StyledText.bodyLarge(
+                    experience.company ?? '',
+                    fontWeight: FontWeight.w600,
+                  ),
+                  StyledText.bodyLarge(
                     experience.occupation ?? '',
                     fontWeight: FontWeight.w500,
                   ),
