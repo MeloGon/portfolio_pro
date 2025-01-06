@@ -86,6 +86,8 @@ class AboutMeWidget extends ConsumerWidget {
               error: (error, stackTrace) =>
                   const Text(MyStrings.thereIsaProblem),
               loading: () => const SizedBox.shrink()),
+          const DownloadResumeWidget(),
+          20.h,
           const ThemeButtonWidget(),
         ],
       ),

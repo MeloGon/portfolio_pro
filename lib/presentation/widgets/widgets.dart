@@ -7,3 +7,4 @@ export './skills_widget.dart';
 export './language_chip_widget.dart';
 export './projects_section_widget.dart';
 export './background_widget.dart';
+export './download_resume_widget.dart';
