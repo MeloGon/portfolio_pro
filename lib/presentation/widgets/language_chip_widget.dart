@@ -15,7 +15,7 @@ class LanguageChipWidget extends StatelessWidget {
       child: Chip(
         padding: const EdgeInsets.all(.2),
         color: WidgetStateProperty.resolveWith((states) {
-          return color ?? Colors.orange.withOpacity(.3);
+          return color ?? Colors.orange.withValues(alpha: .3);
         }),
         shape: const StadiumBorder(
           side: BorderSide(style: BorderStyle.none),

@@ -5,8 +5,7 @@ import 'package:portfolio/config/config.dart';
 import 'package:portfolio/config/constants/my_strings.dart';
 import 'package:portfolio/presentation/providers/firebase_connection.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:js' as js;
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutMeWidget extends ConsumerWidget {
   const AboutMeWidget({super.key});
@@ -25,7 +24,7 @@ class AboutMeWidget extends ConsumerWidget {
                 dimension: 200,
                 child: DecoratedBox(
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(.2),
+                        color: Colors.white.withValues(alpha: .2),
                         shape: BoxShape.circle)),
               ),
               const Positioned(
@@ -57,19 +56,18 @@ class AboutMeWidget extends ConsumerWidget {
                           IconButton(
                               icon: FaIcon(
                                 FontAwesomeIcons.linkedin,
-                                color: Colors.orange.withOpacity(0.6),
+                                color: Colors.orange.withValues(alpha: 0.6),
                               ),
-                              onPressed: () {
-                                js.context.callMethod('open', [
-                                  "https://www.linkedin.com/in/kevyn-mauro-melo-gonzales-183160208/"
-                                ]);
+                              onPressed: () async {
+                                await launchUrl(Uri.parse(
+                                    "https://www.linkedin.com/in/kevyn-mauro-melo-gonzales-183160208/"));
                               }),
                           IconButton(
                               icon: const FaIcon(FontAwesomeIcons.github),
-                              color: Colors.orange.withOpacity(0.6),
-                              onPressed: () {
-                                js.context.callMethod(
-                                    'open', ["https://github.com/MeloGon"]);
+                              color: Colors.orange.withValues(alpha: 0.6),
+                              onPressed: () async {
+                                await launchUrl(
+                                    Uri.parse("https://github.com/MeloGon"));
                               }),
                         ],
                       ),

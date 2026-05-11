@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         height: 30,
-        color: Colors.orange.withOpacity(.6),
+        color: Colors.orange.withValues(alpha: .6),
         child: Align(
           alignment: Alignment.center,
           child: StyledText.bodySmall(

@@ -16,7 +16,7 @@ class BackgroundWidget extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.orange.withOpacity(.3),
+                color: Colors.orange.withValues(alpha: .3),
               ),
             ),
           ),
@@ -28,7 +28,7 @@ class BackgroundWidget extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.orange.withOpacity(.3),
+                color: Colors.orange.withValues(alpha: .3),
               ),
             ),
           ),

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:portfolio/config/config.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:js' as js;
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:portfolio/presentation/providers/firebase_connection.dart';
 
@@ -31,9 +30,9 @@ class ProjectsSectionWidget extends ConsumerWidget {
                     return SizedBox(
                       width: 300,
                       child: GestureDetector(
-                        onTap: () {
+                        onTap: () async {
                           if (project.url?.isNotEmpty ?? false) {
-                            js.context.callMethod('open', [project.url]);
+                            await launchUrl(Uri.parse(project.url!));
                           }
                         },
                         child: Card(
@@ -58,9 +57,9 @@ class ProjectsSectionWidget extends ConsumerWidget {
                                     const Spacer(),
                                     if (project.url?.isNotEmpty ?? false)
                                       GestureDetector(
-                                          onTap: () {
-                                            js.context.callMethod(
-                                                'open', [project.url]);
+                                          onTap: () async {
+                                            await launchUrl(
+                                                Uri.parse(project.url!));
                                           },
                                           child: const Icon(Icons.link))
                                   ],

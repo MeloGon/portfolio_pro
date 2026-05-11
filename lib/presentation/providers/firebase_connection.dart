@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/domain/entities/education.dart';
 import 'package:portfolio/domain/entities/experience.dart';
 import 'package:portfolio/domain/entities/profile.dart';

@@ -8,9 +8,9 @@ class DownloadResumeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        launch(
-            'https://drive.google.com/file/d/1kJz4i_kVKd7h3cVIauOVbpxVPnbFR3QM/view?usp=sharing');
+      onPressed: () async {
+        await launchUrl(Uri.parse(
+            'https://drive.google.com/file/d/1kJz4i_kVKd7h3cVIauOVbpxVPnbFR3QM/view?usp=sharing'));
       },
       child: const Text(MyStrings.downloadCv),
     );
