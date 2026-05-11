@@ -9,9 +9,15 @@ class Experience {
   final String? company;
   final List<String>? technologies;
 
-  Experience(this.occupation, this.date, this.place, this.content, this.company,
-      this.technologies,
-      {this.id});
+  Experience(
+    this.occupation,
+    this.date,
+    this.place,
+    this.content,
+    this.company,
+    this.technologies, {
+    this.id,
+  });
 
   Map<String, dynamic> toMap() {
     return {
@@ -20,7 +26,7 @@ class Experience {
       'place': place,
       'content': content,
       'company': company,
-      'technologies': technologies
+      'technologies': technologies,
     };
   }
 
@@ -31,9 +37,7 @@ class Experience {
       map['place'] ?? '',
       map['content'] ?? '',
       map['company'] ?? '',
-      List<String>.from(
-        map['technologies'] ?? [],
-      ),
+      List<String>.from(map['technologies'] ?? []),
     );
   }
 }

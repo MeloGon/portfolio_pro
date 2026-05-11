@@ -59,3 +59,55 @@ abstract class _$DarkMode extends $Notifier<bool> {
     element.handleCreate(ref, build);
   }
 }
+
+@ProviderFor(LanguageMode)
+final languageModeProvider = LanguageModeProvider._();
+
+final class LanguageModeProvider
+    extends $NotifierProvider<LanguageMode, AppLanguage> {
+  LanguageModeProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'languageModeProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$languageModeHash();
+
+  @$internal
+  @override
+  LanguageMode create() => LanguageMode();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(AppLanguage value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<AppLanguage>(value),
+    );
+  }
+}
+
+String _$languageModeHash() => r'7f5f18fbb47f18b30b262a49a07adbfcb6d403bd';
+
+abstract class _$LanguageMode extends $Notifier<AppLanguage> {
+  AppLanguage build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref = this.ref as $Ref<AppLanguage, AppLanguage>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AppLanguage, AppLanguage>,
+              AppLanguage,
+              Object?,
+              Object?
+            >;
+    element.handleCreate(ref, build);
+  }
+}

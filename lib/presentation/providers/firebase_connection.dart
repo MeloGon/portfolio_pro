@@ -15,8 +15,8 @@ Future<Profile> getProfile(Ref ref) async {
       .doc('profile')
       .get()
       .then((profile) {
-    return Profile.fromMap(profile);
-  });
+        return Profile.fromMap(profile);
+      });
 }
 
 @Riverpod(keepAlive: true)
@@ -28,10 +28,10 @@ Future<List<Education>> getEducation(Ref ref) async {
       .collection('list_education')
       .get()
       .then((listEducation) {
-    return listEducation.docs
-        .map((education) => Education.fromMap(education))
-        .toList();
-  });
+        return listEducation.docs
+            .map((education) => Education.fromMap(education))
+            .toList();
+      });
 }
 
 @Riverpod(keepAlive: true)
@@ -42,10 +42,10 @@ Future<List<Experience>> getExperience(Ref ref) {
       .collection('list_experience')
       .get()
       .then((listExperience) {
-    return listExperience.docs
-        .map((experience) => Experience.fromMap(experience))
-        .toList();
-  });
+        return listExperience.docs
+            .map((experience) => Experience.fromMap(experience))
+            .toList();
+      });
 }
 
 @Riverpod(keepAlive: true)
@@ -56,8 +56,8 @@ Future<List<Project>> getProjects(Ref ref) {
       .collection('list_projects')
       .get()
       .then((listProjects) {
-    return listProjects.docs
-        .map((projects) => Project.fromMap(projects))
-        .toList();
-  });
+        return listProjects.docs
+            .map((projects) => Project.fromMap(projects))
+            .toList();
+      });
 }

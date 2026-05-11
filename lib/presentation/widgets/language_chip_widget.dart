@@ -1,27 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/config/config.dart';
+import 'package:portfolio/config/theme/app_theme.dart';
 
 class LanguageChipWidget extends StatelessWidget {
   final String languageName;
   final Icon? languageIcon;
   final Color? color;
-  const LanguageChipWidget(
-      {super.key, required this.languageName, this.languageIcon, this.color});
+
+  const LanguageChipWidget({
+    super.key,
+    required this.languageName,
+    this.languageIcon,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10, top: 10),
-      child: Chip(
-        padding: const EdgeInsets.all(.2),
-        color: WidgetStateProperty.resolveWith((states) {
-          return color ?? Colors.orange.withValues(alpha: .3);
-        }),
-        shape: const StadiumBorder(
-          side: BorderSide(style: BorderStyle.none),
-        ),
-        label: StyledText.labelMedium(languageName),
-        avatar: languageIcon,
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: isDark ? bgSurface : const Color(0xFFFFFBF3),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: accentPrimary.withValues(alpha: .25)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (languageIcon != null) ...[
+            IconTheme(
+              data: const IconThemeData(size: 14, color: accentPrimary),
+              child: languageIcon!,
+            ),
+            const SizedBox(width: 5),
+          ],
+          Text(
+            languageName,
+            style: Theme.of(context).textTheme.labelMedium?.copyWith(
+              color: isDark ? textPrimary : Colors.black87,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       ),
     );
   }

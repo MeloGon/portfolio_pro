@@ -7,12 +7,7 @@ class Education {
   Education({this.name, this.date, this.degree, this.url, this.id});
 
   Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'date': date,
-      'degree': degree,
-      'url': url,
-    };
+    return {'name': name, 'date': date, 'degree': degree, 'url': url};
   }
 
   factory Education.fromMap(DocumentSnapshot map) {
@@ -27,8 +22,9 @@ class Education {
 
 List<Education> educationData = [
   Education(
-      name: "Universidad Catolica de Santa María",
-      date: "2015-2019",
-      degree: "Systems Engineer",
-      url: "https://ucsm.edu.pe/"),
+    name: "Universidad Catolica de Santa María",
+    date: "2015-2019",
+    degree: "Systems Engineer",
+    url: "https://ucsm.edu.pe/",
+  ),
 ];

@@ -7,16 +7,24 @@ extension LanguagesExtensions on String {
   Widget get toLanguage {
     if (this == LanguageNames.flutter.language) {
       return const LanguageChipWidget(
-          languageName: 'Flutter', languageIcon: Icon(Symbols.flutter));
+        languageName: 'Flutter',
+        languageIcon: Icon(Symbols.flutter),
+      );
     } else if (this == LanguageNames.android.language) {
       return const LanguageChipWidget(
-          languageName: 'Android', languageIcon: Icon(Symbols.android));
+        languageName: 'Android',
+        languageIcon: Icon(Symbols.android),
+      );
     } else if (this == LanguageNames.swift.language) {
       return const LanguageChipWidget(
-          languageName: 'Swift', languageIcon: Icon(Symbols.ios));
+        languageName: 'Swift',
+        languageIcon: Icon(Symbols.ios),
+      );
     } else if (this == LanguageNames.kotlin.language) {
       return const LanguageChipWidget(
-          languageName: 'Kotlin', languageIcon: Icon(Symbols.android));
+        languageName: 'Kotlin',
+        languageIcon: Icon(Symbols.android),
+      );
     } else {
       return const SizedBox();
     }

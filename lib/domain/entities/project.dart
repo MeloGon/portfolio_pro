@@ -13,7 +13,10 @@ class Project {
 
   factory Project.fromMap(DocumentSnapshot map) {
     return Project(
-        title: map['title'], description: map['description'], url: map['url']);
+      title: map['title'],
+      description: map['description'],
+      url: map['url'],
+    );
   }
 }
 
